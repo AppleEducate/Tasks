@@ -1,5 +1,7 @@
-import 'package:flutter_web/io.dart';
-import 'package:flutter_web/material.dart';
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'src/data/models/index.dart';

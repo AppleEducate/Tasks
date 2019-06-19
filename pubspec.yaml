@@ -5,39 +5,32 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
-  flutter_web: any
-  flutter_web_ui: any
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
   provider: ^3.0.0+1
   firebase: ^5.0.3
   after_layout: any
   json_annotation: ^2.4.0
+  intl: ^0.15.8
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   build_runner: ^1.4.0
   build_web_compilers: '>=1.0.0 <2.0.0'
   pedantic: ^1.0.0
-  flutter_web_test: any
   json_serializable: ^3.0.0
+  
 
-dependency_overrides:
-  flutter_web:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web
-  flutter_web_test:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web_test
-  flutter_web_ui:
-    git:
-      url: https://github.com/flutter/flutter_web
-      path: packages/flutter_web_ui
-  provider:
-    git:
-      url: https://github.com/AppleEducate/provider
-      path: packages/provider
-      ref: web
-  after_layout:
-    git:
-      url: https://github.com/AppleEducate/flutter_after_layout
-      ref: web
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: ../assets/Raleway-Regular.ttf
+          weight: 400

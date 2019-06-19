@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import 'index.dart';
 import 'package:json_annotation/json_annotation.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 
 import '../../../data/classes/task.dart';
 import '../../tasks/index.dart';

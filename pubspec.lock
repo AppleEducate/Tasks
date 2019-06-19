@@ -4,11 +4,9 @@ packages:
   after_layout:
     dependency: "direct main"
     description:
-      path: "."
-      ref: web
-      resolved-ref: b7a621032c9514927cd3165e609ddf0fe6b3065f
-      url: "https://github.com/AppleEducate/flutter_after_layout"
-    source: git
+      name: after_layout
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.0.7+1"
   analyzer:
     dependency: transitive
@@ -157,13 +155,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.6"
-  csslib:
-    dependency: transitive
+  cupertino_icons:
+    dependency: "direct main"
     description:
-      name: csslib
+      name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.16.0"
+    version: "0.1.2"
   dart_style:
     dependency: transitive
     description:
@@ -185,32 +183,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.9"
-  flutter_web:
+  flutter:
     dependency: "direct main"
-    description:
-      path: "packages/flutter_web"
-      ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
-      url: "https://github.com/flutter/flutter_web"
-    source: git
+    description: flutter
+    source: sdk
     version: "0.0.0"
-  flutter_web_test:
+  flutter_test:
     dependency: "direct dev"
-    description:
-      path: "packages/flutter_web_test"
-      ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
-      url: "https://github.com/flutter/flutter_web"
-    source: git
-    version: "0.0.0"
-  flutter_web_ui:
-    dependency: "direct main"
-    description:
-      path: "packages/flutter_web_ui"
-      ref: HEAD
-      resolved-ref: "14f1ccfa4000b52c9191140af1214bf5dbe066f2"
-      url: "https://github.com/flutter/flutter_web"
-    source: git
+    description: flutter
+    source: sdk
     version: "0.0.0"
   front_end:
     dependency: transitive
@@ -233,13 +214,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0"
-  html:
-    dependency: transitive
-    description:
-      name: html
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.0+2"
   http:
     dependency: transitive
     description:
@@ -262,7 +236,7 @@ packages:
     source: hosted
     version: "3.1.3"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
@@ -289,13 +263,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  json_rpc_2:
-    dependency: transitive
-    description:
-      name: json_rpc_2
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   json_serializable:
     dependency: "direct dev"
     description:
@@ -338,20 +305,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
-  multi_server_socket:
-    dependency: transitive
-    description:
-      name: multi_server_socket
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
-  node_preamble:
-    dependency: transitive
-    description:
-      name: node_preamble
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.4"
   package_config:
     dependency: transitive
     description:
@@ -397,11 +350,9 @@ packages:
   provider:
     dependency: "direct main"
     description:
-      path: "packages/provider"
-      ref: web
-      resolved-ref: f1c938bb00579b855df4552fe69e86cdea1be601
-      url: "https://github.com/AppleEducate/provider"
-    source: git
+      name: provider
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "3.0.0+1"
   pub_semver:
     dependency: transitive
@@ -438,20 +389,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.5"
-  shelf_packages_handler:
-    dependency: transitive
-    description:
-      name: shelf_packages_handler
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
-  shelf_static:
-    dependency: transitive
-    description:
-      name: shelf_static
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.8"
   shelf_web_socket:
     dependency: transitive
     description:
@@ -459,6 +396,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3"
+  sky_engine:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.99"
   source_gen:
     dependency: transitive
     description:
@@ -466,13 +408,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.4+2"
-  source_map_stack_trace:
-    dependency: transitive
-    description:
-      name: source_map_stack_trace
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.5"
   source_maps:
     dependency: transitive
     description:
@@ -522,24 +457,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  test:
-    dependency: transitive
-    description:
-      name: test
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.6.3"
   test_api:
     dependency: transitive
     description:
       name: test_api
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.5"
-  test_core:
-    dependency: transitive
-    description:
-      name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.5"
@@ -564,13 +485,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-  vm_service_client:
-    dependency: transitive
-    description:
-      name: vm_service_client
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.6+2"
   watcher:
     dependency: transitive
     description:

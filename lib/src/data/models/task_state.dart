@@ -1,5 +1,5 @@
 import 'package:firebase/firestore.dart';
-import 'package:flutter_web/material.dart';
+import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as fb;
 
 import '../../ui/common/bottom_sheet/more.dart';

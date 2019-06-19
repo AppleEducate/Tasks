@@ -90,7 +90,7 @@ class TaskState extends ChangeNotifier {
   }
 
   void addList(String name) {
-    final ref = fb.firestore().collection('lists').doc();
+    final ref = listRef.doc();
     var _list = TaskList(id: ref.id, name: name, tasks: [], active: true);
     activeList.active = false;
     _lists.add(_list);

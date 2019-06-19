@@ -1,31 +1,29 @@
-import 'package:firebase/firebase.dart' as fb;
-import 'package:firebase/firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-final auth = fb.auth();
+final auth = FirebaseAuth.instance;
+
 bool _ready = false;
 void init() {
   if (!_ready) {
-    fb.initializeApp(
-      authDomain: "AUTH_DOMAIN",
-      databaseURL: "DATABASE_URL",
-      projectId: "PROJECT_ID",
-      storageBucket: "STORAGE_BUCKET",
-      messagingSenderId: "MESSAGE_SENDER_ID",
-    );
+    // initializeApp(
+    //   authDomain: "AUTH_DOMAIN",
+    //   databaseURL: "DATABASE_URL",
+    //   projectId: "PROJECT_ID",
+    //   storageBucket: "STORAGE_BUCKET",
+    //   messagingSenderId: "MESSAGE_SENDER_ID",
+    // );
     _ready = true;
   }
 }
 
-Future<fb.User> registerUser(String email, String password) async {
+Future<FirebaseUser> registerUser(String email, String password) async {
   init();
   if (email.isNotEmpty && password.isNotEmpty) {
     var trySignin = false;
     try {
-      // Modifies persistence state. More info: https://firebase.google.com/docs/auth/web/auth-state-persistence
-      var selectedPersistence = 'local';
-      await auth.setPersistence(selectedPersistence);
-      final _user = await auth.createUserWithEmailAndPassword(email, password);
-      if (_user != null) return _user.user;
+      final _user = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      if (_user != null) return _user;
     } catch (e) {
       if (e.code == "auth/email-already-in-use") {
         trySignin = true;
@@ -36,8 +34,9 @@ Future<fb.User> registerUser(String email, String password) async {
 
     if (trySignin) {
       try {
-        final _user = await auth.signInWithEmailAndPassword(email, password);
-        if (_user != null) return _user.user;
+        final _user = await auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        if (_user != null) return _user;
       } catch (e) {
         throw e;
       }
@@ -48,13 +47,11 @@ Future<fb.User> registerUser(String email, String password) async {
   throw 'Error Communicating with Firebase';
 }
 
-Future<fb.User> startAsGuest() async {
+Future<FirebaseUser> startAsGuest() async {
   init();
   try {
-    var selectedPersistence = 'local';
-    await auth.setPersistence(selectedPersistence);
     final _user = await auth.signInAnonymously();
-    if (_user != null) return _user.user;
+    if (_user != null) return _user;
   } catch (e) {
     throw e.toString();
   }
@@ -64,9 +61,7 @@ Future<fb.User> startAsGuest() async {
 Future forgotPassword(String email) async {
   init();
   try {
-    var selectedPersistence = 'local';
-    await auth.setPersistence(selectedPersistence);
-    await auth.sendPasswordResetEmail(email);
+    await auth.sendPasswordResetEmail(email: email);
   } catch (e) {
     throw e.toString();
   }
@@ -82,12 +77,10 @@ Future logout() async {
   throw 'Error Communicating with Firebase';
 }
 
-Future<fb.User> checkUser() async {
+Future<FirebaseUser> checkUser() async {
   init();
   try {
-    var selectedPersistence = 'local';
-    await auth.setPersistence(selectedPersistence);
-    final _user = await auth.currentUser;
+    final _user = await auth.currentUser();
     if (_user != null) return _user;
   } catch (e) {
     throw e.toString();
@@ -95,26 +88,12 @@ Future<fb.User> checkUser() async {
   throw 'Error Communicating with Firebase';
 }
 
-Future<fb.User> googleSignIn() async {
-  try {
-    var selectedPersistence = 'local';
-    await auth.setPersistence(selectedPersistence);
-    final _user = await auth.signInWithPopup(fb.GoogleAuthProvider());
-    if (_user != null) return _user.user;
-  } catch (e) {
-    throw e.toString();
-  }
-  throw 'Error Communicating with Firebase';
-}
-
-Future<List<DocumentSnapshot>> getList(String collection,
-    {String orderBy}) async {
-  init();
-  try {
-    final ref = fb.firestore().collection(collection);
-    final _data = await ref.get();
-    return _data.docs;
-  } catch (e) {
-    throw 'Error Getting Snapshots';
-  }
-}
+// Future<FirebaseUser> googleSignIn() async {
+//   try {
+//     final _user = await auth.signInWithCredential(GoogleAuthProvider());
+//     if (_user != null) return _user;
+//   } catch (e) {
+//     throw e.toString();
+//   }
+//   throw 'Error Communicating with Firebase';
+// }

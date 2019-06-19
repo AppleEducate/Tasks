@@ -68,15 +68,15 @@ class AuthState extends ChangeNotifier {
     _setLoading(false);
   }
 
-  void signInGoogle() async {
-    _error = '';
-    _setLoading(true);
+  // void signInGoogle() async {
+  //   _error = '';
+  //   _setLoading(true);
 
-    try {
-      _cred = await googleSignIn();
-    } catch (e) {
-      _error = e.toString();
-    }
-    _setLoading(false);
-  }
+  //   try {
+  //     _cred = await googleSignIn();
+  //   } catch (e) {
+  //     _error = e.toString();
+  //   }
+  //   _setLoading(false);
+  // }
 }

@@ -9619,10 +9619,10 @@ this.a=a
 this.b=b},
 qE:function qE(a,b){this.a=a
 this.b=b}},K={fr:function fr(){},
-a7B:function(a,b,c,d,e){var u,t,s,r,q=null,p=null
-if(p==null)p="[DEFAULT]"
-try{t={apiKey:q,authDomain:a,databaseURL:b,projectId:d,storageBucket:e,messagingSenderId:c}
-s=p
+a7B:function(a,b,c,d,e,f){var u,t,s,r,q=null
+if(q==null)q="[DEFAULT]"
+try{t={apiKey:a,authDomain:b,databaseURL:c,projectId:e,storageBucket:f,messagingSenderId:d}
+s=q
 s=S.a3A(firebase.initializeApp(t,s))
 return s}catch(r){u=H.ag(r)
 if(K.a6s(u))throw H.o(new K.Ei("firebase.js must be loaded."))
@@ -13632,7 +13632,7 @@ _.b=b
 _.c=c
 _.$ti=d},
 Gv:function Gv(a){this.a=a},
-t2:function(){if(!$.a0O){K.a7B("AUTH_DOMAIN","DATABASE_URL","MESSAGE_SENDER_ID","PROJECT_ID","STORAGE_BUCKET")
+t2:function(){if(!$.a0O){K.a7B("AIzaSyB4rArs-tvcj9edB9x-T8E2frYbQ-3fxDM","tasky-49dc9.firebaseapp.com","https://tasky-49dc9.firebaseio.com","946617205378","tasky-49dc9","tasky-49dc9.appspot.com")
 $.a0O=!0}},
 t6:function(a,b){return X.a7V(a,b)},
 a7V:function(a,b){var u=0,t=P.ab(E.hJ),s,r=2,q,p=[],o,n,m,l,k,j,i,h,g,f,e

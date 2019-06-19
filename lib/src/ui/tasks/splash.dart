@@ -38,7 +38,7 @@ class _TasksSplashPageState extends State<TasksSplashPage> {
               Image(
                 width: 150.0,
                 height: 150.0,
-                image: AssetImage("images/icon.png"),
+                image: AssetImage("assets/images/icon.png"),
               ),
             ],
           ),

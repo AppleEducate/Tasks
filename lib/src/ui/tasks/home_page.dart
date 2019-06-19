@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../data/classes/index.dart';
 import '../../data/models/index.dart';
 import '../common/app_bar/main_list.dart';
+import '../common/bottom_sheet/index.dart';
 import '../common/bottom_sheet/menu.dart';
 import '../common/bottom_sheet/more.dart';
 import '../common/index.dart';
@@ -21,9 +22,20 @@ class _TasksHomePageState extends State<TasksHomePage>
     with TickerProviderStateMixin, AfterLayoutMixin<TasksHomePage> {
   AnimationController detailsTapAnimationController;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  StateSetter setSheetState;
   bool showCompleted = false;
 
   final _duration = Duration(milliseconds: 300);
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    detailsTapAnimationController.addListener(() {
+      setSheetState(() {
+        print("Animation: ${detailsTapAnimationController.value.toDouble()}");
+        // _bottomSheet;
+      });
+    });
+  }
 
   @override
   void dispose() {
@@ -44,7 +56,7 @@ class _TasksHomePageState extends State<TasksHomePage>
         if (tasks.pendingTaskList == null || tasks.pendingTaskList.isEmpty) {
           return SliverFillRemaining(
               child: ImageWidget(
-            image: "images/new_list.png",
+            image: "assets/images/new_list.png",
             title: 'A fresh start',
             subtitle: 'Anything to Add?',
           ));
@@ -69,7 +81,7 @@ class _TasksHomePageState extends State<TasksHomePage>
     if (showCompleted) {
       return SliverFillRemaining(
           child: ImageWidget(
-        image: "images/completed.png",
+        image: "assets/images/completed.png",
         title: 'Nicely Done!',
         subtitle: "You've finished all your tasks.\nTake a second to recharge.",
       ));
@@ -176,13 +188,14 @@ class _TasksHomePageState extends State<TasksHomePage>
     return Consumer<TaskState>(
       builder: (context, tasks, child) => Scaffold(
             resizeToAvoidBottomInset: true,
+            resizeToAvoidBottomPadding: true,
             key: scaffoldKey,
             floatingActionButton: FloatingActionButton.extended(
               elevation: 4.0,
-              icon: const Icon(Icons.add),
+            icon: const Icon(Icons.add),
               label: const Text('Add a new task', maxLines: 1),
               onPressed: () {
-                showModalBottomSheet<Task>(
+                showModalCustomBottomSheet<Task>(
                     context: context,
                     builder: (BuildContext context) {
                       // return new AnimatedPadding(
@@ -198,7 +211,7 @@ class _TasksHomePageState extends State<TasksHomePage>
                       //     ),
                       //   ),
                       // );
-                      return SafeArea(child: AddTaskWidget());
+                      return AddTaskWidget();
                     }).then((newTask) {
                   if (newTask == null || newTask.title.isNotEmpty)
                     tasks.onNewTaskSave(newTask);
@@ -243,16 +256,5 @@ class _TasksHomePageState extends State<TasksHomePage>
             ),
           ),
     );
-  }
-
-  StateSetter setSheetState;
-  @override
-  void afterFirstLayout(BuildContext context) {
-    detailsTapAnimationController.addListener(() {
-      setSheetState(() {
-        print("Animation: ${detailsTapAnimationController.value.toDouble()}");
-        // _bottomSheet;
-      });
-    });
   }
 }

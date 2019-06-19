@@ -26,15 +26,22 @@ void _setTargetPlatformForDesktop() {
   }
 }
 
+ThemeData get lightTheme => ThemeData(
+      dividerColor: Colors.grey[300],
+      primarySwatch: Colors.blue,
+      canvasColor: Colors.transparent,
+      dialogBackgroundColor: Colors.white,
+      fontFamily: 'Raleway',
+      backgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.white,
+      brightness: Brightness.light,
+      primaryColor: Colors.blue,
+      accentColor: Colors.redAccent,
+    );
+
 class MyApp extends StatelessWidget {
   static const String title = 'Flutter Tasky';
-  final lightTheme = ThemeData(
-    dividerColor: Colors.grey[300],
-    primarySwatch: Colors.blue,
-    canvasColor: Colors.transparent,
-    dialogBackgroundColor: Colors.white,
-    fontFamily: 'Raleway',
-  );
+
   @override
   Widget build(BuildContext context) {
     return ListenableProvider.value(

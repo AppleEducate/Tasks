@@ -158,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Image(
       width: 150.0,
       height: 150.0,
-      image: AssetImage("images/icon.png"),
+      image: AssetImage("assets/images/icon.png"),
     );
   }
 

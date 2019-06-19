@@ -33,5 +33,5 @@ flutter:
   fonts:
     - family: Raleway
       fonts:
-        - asset: ../assets/Raleway-Regular.ttf
+        - asset: assets/Raleway-Regular.ttf
           weight: 400

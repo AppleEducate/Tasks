@@ -1,52 +1,43 @@
-name: tasks
-description: A clone of Google Tasks UI.
+name: flutter_firebase_template
+description: A Flutter Application showing how to use Auth and Firestore on the web and mobile.
+version: 1.0.0+1
+environment:
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-  intl: ^0.15.7
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
-  sqflite: ^0.12.2+1
-  path_provider: ^0.4.0
+  flutter_web: any
+  flutter_web_ui: any
+  provider: ^3.0.0+1
+  firebase: ^5.0.3
+  after_layout: any
+  json_annotation: ^2.4.0
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  build_runner: ^1.4.0
+  build_web_compilers: '>=1.0.0 <2.0.0'
+  pedantic: ^1.0.0
+  flutter_web_test: any
+  json_serializable: ^3.0.0
 
-
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
-flutter:
-
-  fonts:
-    - family: Raleway
-      fonts:
-        - asset: fonts/Raleway-Regular.ttf
-        - asset: fonts/Raleway-Medium.ttf
-        - asset: fonts/Raleway-SemiBold.ttf
-          weight: 700
-        - asset: fonts/Raleway-Thin.ttf
-        - asset: fonts/Raleway-Black.ttf
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
-  uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/user/satya_profile.png
-    - assets/images/icon.png
-    - assets/images/completed.png
-    - assets/images/new_list.png
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.io/assets-and-images/#resolution-aware.
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.io/assets-and-images/#from-packages
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_test:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_test
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
+  provider:
+    git:
+      url: https://github.com/AppleEducate/provider
+      path: packages/provider
+      ref: web
+  after_layout:
+    git:
+      url: https://github.com/AppleEducate/flutter_after_layout
+      ref: web

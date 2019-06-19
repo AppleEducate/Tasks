@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 import '../../data/classes/index.dart';
 import '../../data/models/index.dart';
 import '../common/app_bar/main_list.dart';
-import '../common/bottom_sheet/menu.dart';
-import '../common/bottom_sheet/more.dart';
+import '../common/bottom_sheet/index.dart';
 import '../common/index.dart';
 import '../common/lists/completed.dart';
 import '../common/lists/pending.dart';
@@ -182,7 +181,7 @@ class _TasksHomePageState extends State<TasksHomePage>
               icon: const Icon(Icons.add),
               label: const Text('Add a new task', maxLines: 1),
               onPressed: () {
-                showModalBottomSheet<Task>(
+                showModalCustomBottomSheet<Task>(
                     context: context,
                     builder: (BuildContext context) {
                       // return new AnimatedPadding(

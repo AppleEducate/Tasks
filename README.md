@@ -15,3 +15,8 @@ For help getting started with Flutter, view our online
 - `flutter packages global run webdev serve --auto restart`
 - `flutter packages pub run build_runner watch -—delete-conflicting-outputs`
 - [Flutter for Web](https://github.com/flutter/flutter_web)
+
+flutter clean
+flutter packages pub run build_runner build -—delete-conflicting-outputs
+flutter packages global run webdev build
+cp -a ~/Development/github/clone/Tasks/build/ ~/Development/github/clone/Tasks/docs/

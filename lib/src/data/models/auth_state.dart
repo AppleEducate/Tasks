@@ -1,10 +1,10 @@
-import 'package:firebase/firebase.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../services/index.dart';
 
 class AuthState extends ChangeNotifier {
-  User _cred;
+  FirebaseUser _cred;
   String _error = '';
   bool _loading = false;
 
@@ -12,7 +12,7 @@ class AuthState extends ChangeNotifier {
 
   bool get isLoggedIn => _cred != null;
 
-  User get cred => _cred;
+  FirebaseUser get cred => _cred;
 
   bool get isLoading => _loading;
 

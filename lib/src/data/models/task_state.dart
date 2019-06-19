@@ -1,6 +1,5 @@
-import 'package:firebase/firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase/firebase.dart' as fb;
 
 import '../../ui/common/bottom_sheet/more.dart';
 import '../classes/list.dart';
@@ -40,15 +39,17 @@ class TaskState extends ChangeNotifier {
     }
   }
 
-  CollectionReference get listRef =>
-      fb.firestore().collection('users').doc(userID).collection('lists');
+  CollectionReference get listRef => Firestore.instance
+      .collection('users')
+      .document(userID)
+      .collection('lists');
 
   Future _loadListsCloud() async {
     final ref = listRef;
-    final _data = await ref.get();
+    final _data = await ref.getDocuments();
     if (_data != null) {
-      for (var doc in _data.docs) {
-        final _meta = doc.data();
+      for (var doc in _data.documents) {
+        final _meta = doc.data;
         final _item = TaskList.fromJson(_meta);
         _lists.add(_item);
       }
@@ -61,8 +62,8 @@ class TaskState extends ChangeNotifier {
   }
 
   void _saveListCloud(String id) async {
-    final ref = listRef.doc(id);
-    ref.set(activeList.toJson());
+    final ref = listRef.document(id);
+    ref.setData(activeList.toJson());
     notifyListeners();
   }
 
@@ -70,8 +71,8 @@ class TaskState extends ChangeNotifier {
     final ref = listRef;
 
     for (var list in _lists) {
-      final _doc = await ref.doc(list.id);
-      _doc.set(list.toJson());
+      final _doc = await ref.document(list.id);
+      _doc.setData(list.toJson());
     }
 
     notifyListeners();
@@ -90,8 +91,9 @@ class TaskState extends ChangeNotifier {
   }
 
   void addList(String name) {
-    final ref = fb.firestore().collection('lists').doc();
-    var _list = TaskList(id: ref.id, name: name, tasks: [], active: true);
+    final ref = listRef.document();
+    var _list =
+        TaskList(id: ref.documentID, name: name, tasks: [], active: true);
     activeList.active = false;
     _lists.add(_list);
     notifyListeners();
